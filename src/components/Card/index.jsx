@@ -1,9 +1,13 @@
+import Post from "../Post";
+
 import iredeIcon from "../../assets/irede.png";
 import restic12 from "../../assets/restic12.png";
+
 import { IoMdGlobe } from "react-icons/io";
 import { BiLike } from "react-icons/bi";
 import { MdOutlineChat } from "react-icons/md";
 import { PiArrowElbowUpRight } from "react-icons/pi";
+
 function Header() {
   return (
     <div className="flex items-center ">
@@ -40,12 +44,22 @@ function Footer() {
     </div>
   );
 }
-export default function Card() {
+
+function Comments({ posts }) {
+  return (
+    <>
+      <Post posts={posts} />
+    </>
+  );
+}
+
+export default function Card({ posts }) {
   return (
     <div className="w-72 mx-4 my-7 shadow-md shadow-gray-400">
       <Header />
       <Body />
       <Footer />
+      <Comments posts={posts} />
     </div>
   );
 }
